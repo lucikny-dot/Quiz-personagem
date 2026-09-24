@@ -21,47 +21,80 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#f5f5f5;
+    background:#090909;
     min-height:100vh;
     overflow-x:hidden;
-
-    background:
-        radial-gradient(circle at 20% 10%,rgba(139,92,246,.25),transparent 28%),
-        radial-gradient(circle at 80% 35%,rgba(168,85,247,.16),transparent 30%),
-        linear-gradient(135deg,#07050c,#11091c 50%,#060509);
 }
+
+/* FUNDO */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    opacity:.35;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(160,30,45,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(100,20,30,.08),
+            transparent 30%
+        );
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
 
     background-image:
-        radial-gradient(#fff 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.015) 1px,
+            transparent 1px
+        );
 
-    background-size:55px 55px;
+    background-size:45px 45px;
+
+    z-index:-1;
 }
+
+
+/* CONTAINER */
 
 .container{
     width:min(1080px,92%);
     margin:auto;
 }
 
+
 /* NAV */
 
 nav{
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:50;
+
+    background:rgba(9,9,9,.82);
 
     backdrop-filter:blur(18px);
 
-    background:rgba(7,5,12,.72);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
 }
 
 .navin{
@@ -73,19 +106,20 @@ nav{
 }
 
 .logo{
+    font-size:20px;
     font-weight:900;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 .logo span{
-    color:#b879ff;
+    color:#c43a4b;
 }
 
 nav a{
-    color:#ddd;
+    color:#aaa;
     text-decoration:none;
 
-    margin-left:22px;
+    margin-left:24px;
 
     font-size:14px;
 
@@ -93,50 +127,57 @@ nav a{
 }
 
 nav a:hover{
-    color:#c084fc;
+    color:#fff;
 }
+
 
 /* HERO */
 
 .hero{
-    padding:90px 0 70px;
+    padding:110px 0 90px;
+
     text-align:center;
 }
 
 .badge{
     display:inline-block;
 
-    padding:8px 14px;
+    padding:8px 15px;
 
-    border:1px solid rgba(192,132,252,.35);
+    border:
+        1px solid rgba(190,55,70,.35);
 
-    border-radius:999px;
+    border-radius:100px;
 
-    background:rgba(168,85,247,.1);
+    background:
+        rgba(140,25,40,.08);
 
-    color:#d8b4fe;
+    color:#d47a84;
 
-    font-size:13px;
+    font-size:12px;
+
+    letter-spacing:1px;
 }
 
 h1{
-    font-size:clamp(42px,8vw,78px);
+    font-size:clamp(45px,8vw,82px);
 
     line-height:.95;
 
-    margin:22px 0 20px;
+    margin:25px 0;
 }
 
 .gradient{
     background:
         linear-gradient(
             90deg,
-            #fff,
-            #d8b4fe,
-            #a855f7
+            #ffffff,
+            #d9d9d9,
+            #a92c3e
         );
 
     -webkit-background-clip:text;
+
     color:transparent;
 }
 
@@ -145,12 +186,15 @@ h1{
 
     margin:auto;
 
-    color:#bbb;
+    color:#999;
 
     font-size:18px;
 
-    line-height:1.6;
+    line-height:1.7;
 }
+
+
+/* BOTÕES */
 
 .buttons{
     display:flex;
@@ -161,7 +205,7 @@ h1{
 
     flex-wrap:wrap;
 
-    margin-top:30px;
+    margin-top:32px;
 }
 
 .btn{
@@ -172,15 +216,16 @@ h1{
 
     gap:8px;
 
-    padding:14px 21px;
+    padding:14px 22px;
 
-    border-radius:14px;
+    border-radius:12px;
 
     text-decoration:none;
 
     font-weight:800;
 
-    border:1px solid rgba(255,255,255,.1);
+    border:
+        1px solid rgba(255,255,255,.1);
 
     transition:.25s;
 }
@@ -193,43 +238,49 @@ h1{
     background:
         linear-gradient(
             135deg,
-            #9333ea,
-            #c026d3
+            #9e2739,
+            #c43a4b
         );
 
-    color:#fff;
+    color:white;
 
     box-shadow:
-        0 10px 35px rgba(147,51,234,.28);
+        0 12px 30px rgba(130,20,35,.22);
 }
 
 .secondary{
-    background:rgba(255,255,255,.06);
+    background:#141414;
 
-    color:#fff;
+    color:#eee;
 }
 
-/* SECTIONS */
+.secondary:hover{
+    border-color:#555;
+}
+
+
+/* SEÇÕES */
 
 section{
-    padding:70px 0;
+    padding:80px 0;
 }
 
 .title{
     text-align:center;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 }
 
 .title h2{
-    font-size:34px;
+    font-size:35px;
 
     margin-bottom:10px;
 }
 
 .title p{
-    color:#999;
+    color:#777;
 }
+
 
 /* CARDS */
 
@@ -244,34 +295,36 @@ section{
 
 .card{
     background:
-        rgba(255,255,255,.045);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        );
 
     border:
         1px solid rgba(255,255,255,.09);
 
-    border-radius:22px;
+    border-radius:20px;
 
-    padding:26px;
-
-    backdrop-filter:blur(12px);
+    padding:28px;
 
     box-shadow:
-        0 15px 45px rgba(0,0,0,.2);
+        0 20px 50px rgba(0,0,0,.25);
 
-    transition:.25s;
+    transition:.3s;
 }
 
 .card:hover{
-    border-color:
-        rgba(192,132,252,.35);
+    transform:translateY(-5px);
 
-    transform:translateY(-4px);
+    border-color:
+        rgba(190,55,70,.35);
 }
 
 .icon{
-    font-size:34px;
+    font-size:32px;
 
-    margin-bottom:15px;
+    margin-bottom:17px;
 }
 
 .card h3{
@@ -280,32 +333,34 @@ section{
     margin-bottom:10px;
 }
 
-.card p,
-.card li{
-    color:#aaa;
+.card p{
+    color:#999;
 
-    line-height:1.55;
+    line-height:1.6;
 }
 
 .card ul{
     list-style:none;
 
-    margin-top:15px;
+    margin-top:18px;
 }
 
 .card li{
-    margin:8px 0;
+    color:#aaa;
+
+    margin:9px 0;
 }
 
 .card li::before{
     content:"✓";
 
-    color:#c084fc;
+    color:#c43a4b;
 
     font-weight:bold;
 
     margin-right:8px;
 }
+
 
 /* PREÇOS */
 
@@ -315,28 +370,31 @@ section{
 }
 
 .price{
-    font-size:38px;
+    font-size:40px;
 
     font-weight:900;
 
-    margin:15px 0;
-
-    color:#fff;
+    margin:17px 0;
 }
 
 .price small{
-    font-size:14px;
+    font-size:13px;
 
-    color:#888;
+    color:#666;
 
     font-weight:normal;
 }
 
 .featured{
-    border-color:#a855f7;
+    border:
+        1px solid rgba(196,58,75,.6);
 
-    box-shadow:
-        0 0 40px rgba(168,85,247,.12);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(130,25,40,.13),
+            rgba(255,255,255,.025)
+        );
 
     position:relative;
 }
@@ -347,21 +405,24 @@ section{
     right:18px;
     top:18px;
 
-    background:#a855f7;
+    background:#a92c3e;
 
     padding:6px 10px;
 
-    border-radius:999px;
+    border-radius:20px;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
+
+    letter-spacing:.5px;
 }
+
 
 /* TRABALHOS */
 
 .work{
-    min-height:190px;
+    min-height:210px;
 
     display:flex;
 
@@ -371,33 +432,40 @@ section{
 }
 
 .work a{
-    color:#d8b4fe;
+    color:#d56c78;
 
     text-decoration:none;
 
     font-weight:bold;
-
-    margin-top:18px;
 }
+
+.work a:hover{
+    color:#fff;
+}
+
 
 /* SUPORTE */
 
 .support{
     text-align:center;
 
-    padding:45px 25px;
+    padding:55px 25px;
 
-    border-radius:28px;
+    border-radius:25px;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(126,34,206,.22),
-            rgba(168,85,247,.06)
+            145deg,
+            rgba(120,20,35,.15),
+            rgba(255,255,255,.025)
         );
 
     border:
-        1px solid rgba(192,132,252,.2);
+        1px solid rgba(255,255,255,.08);
+}
+
+.support h2{
+    margin-bottom:15px;
 }
 
 .support p{
@@ -405,22 +473,30 @@ section{
 
     margin:12px auto;
 
-    color:#aaa;
+    color:#999;
 
-    line-height:1.6;
+    line-height:1.7;
 }
+
+
+/* CONTATO */
+
+#contato{
+    padding-bottom:100px;
+}
+
 
 /* FOOTER */
 
 footer{
-    padding:40px 0;
+    padding:45px 0;
 
     text-align:center;
 
-    color:#777;
-
     border-top:
         1px solid rgba(255,255,255,.08);
+
+    color:#666;
 }
 
 .social{
@@ -428,15 +504,15 @@ footer{
 
     justify-content:center;
 
-    gap:12px;
-
     flex-wrap:wrap;
+
+    gap:10px;
 
     margin-top:20px;
 }
 
 .social a{
-    color:#ddd;
+    color:#aaa;
 
     text-decoration:none;
 
@@ -445,16 +521,25 @@ footer{
     border:
         1px solid rgba(255,255,255,.1);
 
-    border-radius:12px;
+    border-radius:10px;
+
+    transition:.2s;
+}
+
+.social a:hover{
+    color:#fff;
+
+    border-color:#555;
 }
 
 .note{
     font-size:12px;
 
-    color:#666;
+    margin-top:15px;
 
-    margin-top:16px;
+    color:#555;
 }
+
 
 /* CELULAR */
 
@@ -470,11 +555,15 @@ footer{
     }
 
     .hero{
-        padding-top:65px;
+        padding-top:75px;
     }
 
     section{
-        padding:55px 0;
+        padding:60px 0;
+    }
+
+    h1{
+        font-size:52px;
     }
 
 }
@@ -482,7 +571,9 @@ footer{
 </style>
 </head>
 
+
 <body>
+
 
 <!-- MENU -->
 
@@ -496,13 +587,21 @@ SKLU<span>.CI</span>
 
 <div>
 
-<a href="#servicos">Serviços</a>
+<a href="#servicos">
+Serviços
+</a>
 
-<a href="#precos">Preços</a>
+<a href="#precos">
+Preços
+</a>
 
-<a href="#trabalhos">Trabalhos</a>
+<a href="#trabalhos">
+Trabalhos
+</a>
 
-<a href="#contato">Contato</a>
+<a href="#contato">
+Contato
+</a>
 
 </div>
 
@@ -511,7 +610,7 @@ SKLU<span>.CI</span>
 </nav>
 
 
-<!-- INÍCIO -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -533,10 +632,9 @@ Um site único.
 
 <p>
 
-Crio sites e convites digitais personalizados
-para momentos especiais, pequenos negócios
-e projetos que precisam de uma presença
-diferente na internet.
+Crio sites, convites digitais e experiências
+personalizadas para pessoas, eventos,
+pequenos negócios e projetos especiais.
 
 </p>
 
@@ -553,7 +651,7 @@ href="#contato"
 class="btn secondary"
 href="#trabalhos"
 >
-✨ Ver trabalhos
+Ver trabalhos
 </a>
 
 </div>
@@ -576,7 +674,7 @@ O que eu faço
 </h2>
 
 <p>
-Projetos feitos sob medida, do visual até a experiência.
+Projetos criados de acordo com a ideia de cada cliente.
 </p>
 
 </div>
@@ -588,7 +686,7 @@ Projetos feitos sob medida, do visual até a experiência.
 <div class="card">
 
 <div class="icon">
-💜
+💌
 </div>
 
 <h3>
@@ -596,8 +694,9 @@ Convites digitais
 </h3>
 
 <p>
-Convites para casais, aniversários,
-formaturas, eventos e ocasiões especiais.
+Convites personalizados para casais,
+aniversários, formaturas, eventos
+e ocasiões especiais.
 </p>
 
 <ul>
@@ -616,7 +715,7 @@ formaturas, eventos e ocasiões especiais.
 <div class="card">
 
 <div class="icon">
-🌐
+🖥️
 </div>
 
 <h3>
@@ -645,26 +744,26 @@ e projetos pessoais.
 <div class="card">
 
 <div class="icon">
-✨
+⚡
 </div>
 
 <h3>
-Experiências interativas
+Projetos interativos
 </h3>
 
 <p>
-Quizzes, páginas especiais
-e ideias diferentes para
-compartilhar nas redes.
+Quizzes, páginas especiais,
+experiências e ideias diferentes
+para compartilhar.
 </p>
 
 <ul>
 
-<li>Interações e animações</li>
+<li>Interações</li>
 
-<li>Compartilhamento</li>
+<li>Animações</li>
 
-<li>Projeto personalizado</li>
+<li>Experiência personalizada</li>
 
 </ul>
 
@@ -691,7 +790,7 @@ Preços
 </h2>
 
 <p>
-Valores iniciais — o orçamento pode variar conforme o projeto.
+Valores iniciais. Projetos maiores podem ter orçamento personalizado.
 </p>
 
 </div>
@@ -699,8 +798,6 @@ Valores iniciais — o orçamento pode variar conforme o projeto.
 
 <div class="grid price-grid">
 
-
-<!-- BÁSICO -->
 
 <div class="card">
 
@@ -716,7 +813,7 @@ R$ 40
 </div>
 
 <p>
-Para uma página simples e objetiva.
+Para páginas simples e objetivas.
 </p>
 
 <ul>
@@ -731,7 +828,7 @@ Para uma página simples e objetiva.
 
 <a
 class="btn secondary"
-href="https://wa.me/5592992878506?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20um%20site%20Essencial."
+href="https://wa.me/5592992878506?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20um%20projeto%20Essencial."
 target="_blank"
 >
 Pedir orçamento
@@ -739,8 +836,6 @@ Pedir orçamento
 
 </div>
 
-
-<!-- PERSONALIZADO -->
 
 <div class="card featured">
 
@@ -760,7 +855,7 @@ R$ 90
 </div>
 
 <p>
-Para quem quer algo com mais personalidade.
+Para quem quer um projeto com mais personalidade.
 </p>
 
 <ul>
@@ -777,7 +872,7 @@ Para quem quer algo com mais personalidade.
 
 <a
 class="btn primary"
-href="https://wa.me/5592992878506?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20um%20site%20Personalizado."
+href="https://wa.me/5592992878506?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20um%20projeto%20Personalizado."
 target="_blank"
 >
 Pedir orçamento
@@ -785,8 +880,6 @@ Pedir orçamento
 
 </div>
 
-
-<!-- PREMIUM -->
 
 <div class="card">
 
@@ -802,14 +895,14 @@ R$ 180
 </div>
 
 <p>
-Projetos maiores e mais completos.
+Para projetos maiores e mais elaborados.
 </p>
 
 <ul>
 
-<li>Projeto mais elaborado</li>
+<li>Projeto completo</li>
 
-<li>Várias seções/páginas</li>
+<li>Várias seções</li>
 
 <li>Mais interações</li>
 
@@ -848,7 +941,7 @@ Meus trabalhos
 </h2>
 
 <p>
-Alguns projetos que já fazem parte do meu portfólio.
+Projetos que já desenvolvi.
 </p>
 
 </div>
@@ -900,8 +993,7 @@ Quiz interativo
 
 <p>
 Quiz de personalidade criado
-para compartilhamento nas
-redes sociais.
+para compartilhamento nas redes sociais.
 </p>
 
 </div>
@@ -921,17 +1013,16 @@ Abrir projeto →
 <div>
 
 <div class="icon">
-📱
+🚀
 </div>
 
 <h3>
-Projeto sob medida
+Seu projeto
 </h3>
 
 <p>
-Seu projeto pode aparecer aqui.
-Vamos transformar sua ideia
-em uma página.
+Seu projeto pode ser o próximo
+a aparecer aqui.
 </p>
 
 </div>
@@ -952,23 +1043,24 @@ Quero criar →
 
 <!-- SUPORTE -->
 
-<section id="suporte">
+<section>
 
 <div class="container">
 
 <div class="support">
 
 <h2>
-🛠️ Suporte após o pedido
+🛠️ Suporte após a entrega
 </h2>
 
 <p>
 
-O projeto não termina quando eu entrego o site.
+Meu trabalho não termina simplesmente
+quando o site fica pronto.
 
-Se você precisar de ajuda com o funcionamento
-ou tiver alguma dúvida sobre o projeto,
-pode entrar em contato.
+Depois da entrega, você pode entrar
+em contato caso precise de ajuda
+ou tenha dúvidas sobre o projeto.
 
 </p>
 
@@ -1000,7 +1092,8 @@ Vamos criar?
 </h2>
 
 <p>
-Me conte sua ideia e eu respondo para combinarmos os detalhes.
+Me conte sua ideia e vamos transformar
+ela em um projeto de verdade.
 </p>
 
 </div>
@@ -1014,9 +1107,7 @@ class="btn primary"
 href="https://wa.me/5592992878506?text=Olá!%20Vi%20seu%20portfólio%20e%20quero%20fazer%20um%20projeto."
 target="_blank"
 >
-
 💬 Falar no WhatsApp
-
 </a>
 
 
@@ -1025,9 +1116,7 @@ class="btn secondary"
 href="https://instagram.com/sklu_ci"
 target="_blank"
 >
-
-📸 Chamar no Instagram
-
+📸 Instagram
 </a>
 
 
@@ -1038,7 +1127,7 @@ target="_blank"
 </section>
 
 
-<!-- RODAPÉ -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1047,7 +1136,6 @@ target="_blank"
 <strong>
 SKLU.CI
 </strong>
-
 
 <div class="social">
 
@@ -1058,7 +1146,6 @@ target="_blank"
 Instagram @sklu_ci
 </a>
 
-
 <a
 href="https://wa.me/5592992878506"
 target="_blank"
@@ -1067,7 +1154,6 @@ WhatsApp
 </a>
 
 </div>
-
 
 <p class="note">
 Sites e experiências digitais personalizados • Manaus/AM
