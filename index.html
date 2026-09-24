@@ -7,7 +7,6 @@
 <title>Qual personagem você seria?</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,17 +17,15 @@ body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-
     background:
-        radial-gradient(circle at 20% 10%, #56248a 0%, transparent 30%),
-        radial-gradient(circle at 90% 90%, #162d73 0%, transparent 35%),
-        #05050c;
-
+        radial-gradient(circle at 20% 20%, #4b176e 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #24104d 0%, transparent 35%),
+        linear-gradient(135deg, #09000f, #160020, #08000d);
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow-x: hidden;
+    padding: 20px;
 }
 
 body::before {
@@ -36,2224 +33,1104 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-
+    opacity: .35;
     background-image:
-        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
-
-    background-size: 70px 70px;
-    opacity: .12;
-
-    animation: estrelas 15s linear infinite;
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 55px 55px;
+    animation: estrelas 20s linear infinite;
 }
 
 @keyframes estrelas {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(70px);
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(-55px); }
 }
 
 .container {
-    width: 92%;
-    max-width: 520px;
-    padding: 25px 0;
-
+    width: 100%;
+    max-width: 650px;
     position: relative;
     z-index: 2;
 }
 
 .card {
-    background: rgba(10, 10, 22, .90);
-
-    border: 1px solid rgba(188, 111, 255, .28);
-
-    border-radius: 28px;
-
-    padding: 30px 23px;
-
+    background: rgba(15, 5, 25, .88);
+    border: 1px solid rgba(190, 100, 255, .3);
+    border-radius: 25px;
+    padding: 30px;
     box-shadow:
-        0 0 50px rgba(120, 50, 255, .18),
-        inset 0 0 30px rgba(255,255,255,.015);
+        0 0 50px rgba(130, 30, 200, .25),
+        inset 0 0 30px rgba(120, 30, 180, .05);
+    backdrop-filter: blur(12px);
+}
 
-    backdrop-filter: blur(15px);
+.logo {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #c8afd8;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.creator {
+    text-align: center;
+    color: #a96bdd;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 16px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(135deg, #7b20b5, #b044e9);
+    box-shadow: 0 8px 25px rgba(145, 35, 210, .25);
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(180, 60, 240, .4);
+}
+
+button:active {
+    transform: scale(.98);
 }
 
 .hidden {
     display: none !important;
 }
 
+/* PROGRESSO */
 
-/* ========================= */
-/* INÍCIO */
-/* ========================= */
-
-.logo {
-    text-align: center;
-
-    font-size: 12px;
-
-    letter-spacing: 4px;
-
-    color: #a96cff;
-
-    margin-bottom: 18px;
-}
-
-.start-decoration {
-    text-align: center;
-
-    font-size: 65px;
-
-    margin-bottom: 15px;
-
-    animation: flutuar 3s ease-in-out infinite;
-}
-
-@keyframes flutuar {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-9px);
-    }
-
-}
-
-h1 {
-    text-align: center;
-
-    font-size: clamp(27px, 7vw, 38px);
-
-    line-height: 1.1;
-
-    margin-bottom: 15px;
-}
-
-.subtitle {
-    text-align: center;
-
-    color: #aaa8ba;
-
-    line-height: 1.6;
-
-    margin-bottom: 28px;
-}
-
-
-/* ========================= */
-/* BOTÕES */
-/* ========================= */
-
-.primary {
-
-    width: 100%;
-
-    border: none;
-
-    border-radius: 16px;
-
-    padding: 17px;
-
-    color: white;
-
-    font-weight: bold;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7939e8,
-            #c05cff
-        );
-
-    box-shadow:
-        0 10px 30px rgba(142, 66, 255, .25);
-
-    transition: .2s;
-}
-
-.primary:hover {
-
-    transform: translateY(-2px);
-
-    filter: brightness(1.12);
-}
-
-.primary:active {
-
-    transform: scale(.98);
-}
-
-.share {
-
-    margin-top: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e13cff,
-            #744cff
-        );
-}
-
-
-/* ========================= */
-/* RODAPÉ */
-/* ========================= */
-
-.footer {
-
-    text-align: center;
-
-    color: #666477;
-
-    font-size: 11px;
-
-    margin-top: 16px;
-}
-
-
-/* ========================= */
-/* QUIZ */
-/* ========================= */
-
-.progress {
-
-    height: 7px;
-
-    background: #242331;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    margin-bottom: 22px;
-}
-
-.progress-bar {
-
-    height: 100%;
-
-    width: 10%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #803cff,
-            #dc78ff
-        );
-
-    transition: width .4s ease;
-}
-
-.question-number {
-
-    color: #ae70ff;
-
-    font-size: 12px;
-
-    letter-spacing: 1px;
-
-    font-weight: bold;
-
-    margin-bottom: 12px;
-}
-
-.question {
-
-    font-size: 23px;
-
-    font-weight: bold;
-
-    line-height: 1.3;
-
-    margin-bottom: 20px;
-}
-
-.answers {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 11px;
-}
-
-.answer {
-
-    width: 100%;
-
-    padding: 16px;
-
-    border-radius: 16px;
-
-    border: 1px solid #373447;
-
-    background: rgba(25,24,38,.9);
-
-    color: #eee;
-
-    font-size: 15px;
-
-    text-align: left;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-.answer:hover {
-
-    background: #29223b;
-
-    border-color: #a65aff;
-
-    transform: translateX(3px);
-}
-
-.answer:active {
-
-    transform: scale(.98);
-}
-
-
-/* ========================= */
-/* RESULTADO */
-/* ========================= */
-
-.result {
-
-    text-align: center;
-}
-
-.result-symbol {
-
-    font-size: 72px;
-
-    margin-bottom: 8px;
-
-    animation:
-        flutuar
-        2.5s
-        ease-in-out
-        infinite;
-}
-
-.result-label {
-
-    color: #a96cff;
-
-    letter-spacing: 3px;
-
-    font-size: 11px;
-
-    margin-bottom: 8px;
-}
-
-.result h2 {
-
-    font-size: 32px;
-
-    margin-bottom: 15px;
-}
-
-.description {
-
-    color: #c2bfce;
-
-    line-height: 1.6;
-
+.progress-area {
     margin-bottom: 25px;
 }
 
-
-/* ========================= */
-/* ESTATÍSTICAS */
-/* ========================= */
-
-.stats {
-
-    text-align: left;
-
-    margin-bottom: 22px;
-}
-
-.stat {
-
-    margin-bottom: 14px;
-}
-
-.stat-top {
-
+.progress-top {
     display: flex;
-
     justify-content: space-between;
-
-    font-size: 12px;
-
-    margin-bottom: 6px;
-
-    color: #cbc8d5;
+    color: #c7acd5;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
-.stat-bg {
-
+.progress {
     height: 8px;
-
-    background: #282634;
-
+    background: #291531;
     border-radius: 20px;
-
     overflow: hidden;
 }
 
-.stat-fill {
-
+.progress-bar {
     height: 100%;
-
-    width: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #803cff,
-            #d978ff
-        );
-
+    width: 0%;
+    background: linear-gradient(90deg, #7b20b5, #d86aff);
     border-radius: 20px;
+    transition: width .3s;
+}
 
+/* PERGUNTAS */
+
+.question {
+    font-size: 23px;
+    line-height: 1.35;
+    margin-bottom: 22px;
+}
+
+.options {
+    display: grid;
+    gap: 12px;
+}
+
+.option {
+    width: 100%;
+    text-align: left;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(190,100,255,.2);
+    color: #fff;
+    font-weight: normal;
+    box-shadow: none;
+}
+
+.option:hover {
+    background: rgba(150,50,220,.18);
+    border-color: rgba(200,100,255,.6);
+}
+
+/* RESULTADO */
+
+.result-symbol {
+    font-size: 75px;
+    text-align: center;
+    margin-bottom: 5px;
+    animation: aparecer .7s ease;
+}
+
+.result-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.result-description {
+    text-align: center;
+    color: #d2bddc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.traits {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.trait-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.trait-bar {
+    height: 9px;
+    background: #28162f;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.trait-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7720aa, #d45fff);
+    border-radius: 20px;
     transition: width 1s ease;
 }
 
-
-/* ========================= */
-/* CRÉDITO */
-/* ========================= */
-
-.creator {
-
-    margin-top: 18px;
-
+.secondary {
     text-align: center;
-
-    color: #777488;
-
-    font-size: 12px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(150,50,220,.09);
+    border: 1px solid rgba(180,90,240,.15);
+    margin-bottom: 20px;
+    color: #d8c6df;
 }
 
-.creator strong {
-
-    color: #b878ff;
-
-    font-weight: bold;
+.actions {
+    display: grid;
+    gap: 10px;
 }
 
-.share-info {
-
-    font-size: 11px;
-
-    color: #777488;
-
-    margin-top: 12px;
-
-    line-height: 1.5;
+.secondary-button {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(190,100,255,.25);
+    box-shadow: none;
 }
 
-
-/* ========================= */
-/* ANIMAÇÃO */
-/* ========================= */
-
-.fade {
-
-    animation:
-        fade
-        .35s
-        ease;
-}
-
-@keyframes fade {
-
+@keyframes aparecer {
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(10px);
+        transform: scale(.7);
     }
-
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: scale(1);
     }
 }
 
+/* RESPONSIVO */
+
+@media (max-width: 500px) {
+    .card {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .result-title {
+        font-size: 27px;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+}
 </style>
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-<div class="card">
+    <!-- INÍCIO -->
+    <div class="card" id="startScreen">
 
+        <div class="logo">🔮</div>
 
-<!-- ======================== -->
-<!-- TELA INICIAL -->
-<!-- ======================== -->
+        <h1>QUAL PERSONAGEM<br>VOCÊ SERIA?</h1>
 
-<section id="intro">
+        <p class="subtitle">
+            Responda 10 perguntas e descubra qual personalidade
+            combina mais com você.
+        </p>
 
-    <div class="logo">
-        PERSONALITY TEST
-    </div>
+        <button onclick="startQuiz()">
+            ✨ COMEÇAR TESTE
+        </button>
 
-
-    <div class="start-decoration">
-        🎭
-    </div>
-
-
-    <h1>
-        Qual personagem você seria?
-    </h1>
-
-
-    <p class="subtitle">
-
-        Responda 10 perguntas e descubra
-        qual personagem combina mais
-        com a sua personalidade.
-
-    </p>
-
-
-    <button
-        class="primary"
-        onclick="startQuiz()">
-
-        COMEÇAR O QUIZ ✨
-
-    </button>
-
-
-    <div class="footer">
-
-        Não pense demais.
-        A primeira resposta costuma dizer muito.
-
-    </div>
-
-
-    <div class="creator">
-
-        Criado por
-        <strong>@sklu_ci 💡</strong>
-
-    </div>
-
-</section>
-
-
-
-<!-- ======================== -->
-<!-- QUIZ -->
-<!-- ======================== -->
-
-<section
-    id="quiz"
-    class="hidden">
-
-
-    <div class="progress">
-
-        <div
-            class="progress-bar"
-            id="progress">
-
+        <div class="creator">
+            Criado por @sklu_ci 💡
         </div>
 
     </div>
 
 
-    <div
-        class="question-number"
-        id="questionNumber">
+    <!-- QUIZ -->
+    <div class="card hidden" id="quizScreen">
 
-        PERGUNTA 1 DE 10
+        <div class="progress-area">
 
-    </div>
-
-
-    <div
-        class="question fade"
-        id="question">
-
-    </div>
-
-
-    <div
-        class="answers"
-        id="answers">
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ======================== -->
-<!-- RESULTADO -->
-<!-- ======================== -->
-
-<section
-    id="result"
-    class="result hidden">
-
-
-    <div
-        class="result-symbol"
-        id="resultSymbol">
-
-        ✨
-
-    </div>
-
-
-    <div class="result-label">
-
-        SEU RESULTADO
-
-    </div>
-
-
-    <h2 id="resultName">
-
-        -
-
-    </h2>
-
-
-    <p
-        class="description"
-        id="resultDescription">
-
-        -
-
-    </p>
-
-
-
-    <div class="stats">
-
-
-        <div class="stat">
-
-            <div class="stat-top">
-
-                <span>
-                    Personalidade
-                </span>
-
-                <span id="personalityValue">
-                    0%
-                </span>
-
+            <div class="progress-top">
+                <span id="questionNumber">Pergunta 1 de 10</span>
+                <span id="percentage">10%</span>
             </div>
 
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
 
-            <div class="stat-bg">
+        </div>
 
-                <div
-                    class="stat-fill"
-                    id="personalityBar">
+        <div id="questionContainer"></div>
 
+    </div>
+
+
+    <!-- RESULTADO -->
+    <div class="card hidden" id="resultScreen">
+
+        <div class="result-symbol" id="resultSymbol"></div>
+
+        <h2 class="result-title" id="resultTitle"></h2>
+
+        <p class="result-description" id="resultDescription"></p>
+
+        <div class="traits">
+
+            <div>
+                <div class="trait-head">
+                    <span>❤️ Personalidade</span>
+                    <span id="personalityValue">0%</span>
                 </div>
 
+                <div class="trait-bar">
+                    <div class="trait-fill" id="personalityBar"></div>
+                </div>
             </div>
 
-        </div>
-
-
-
-        <div class="stat">
-
-            <div class="stat-top">
-
-                <span>
-                    Caos
-                </span>
-
-                <span id="chaosValue">
-                    0%
-                </span>
-
-            </div>
-
-
-            <div class="stat-bg">
-
-                <div
-                    class="stat-fill"
-                    id="chaosBar">
-
+            <div>
+                <div class="trait-head">
+                    <span>💀 Caos</span>
+                    <span id="chaosValue">0%</span>
                 </div>
 
+                <div class="trait-bar">
+                    <div class="trait-fill" id="chaosBar"></div>
+                </div>
             </div>
 
-        </div>
-
-
-
-        <div class="stat">
-
-            <div class="stat-top">
-
-                <span>
-                    Mistério
-                </span>
-
-                <span id="mysteryValue">
-                    0%
-                </span>
-
-            </div>
-
-
-            <div class="stat-bg">
-
-                <div
-                    class="stat-fill"
-                    id="mysteryBar">
-
+            <div>
+                <div class="trait-head">
+                    <span>🌑 Mistério</span>
+                    <span id="mysteryValue">0%</span>
                 </div>
 
+                <div class="trait-bar">
+                    <div class="trait-fill" id="mysteryBar"></div>
+                </div>
             </div>
 
         </div>
 
+        <div class="secondary" id="secondaryResult"></div>
+
+        <div class="actions">
+
+            <button onclick="shareStory()">
+                📸 COMPARTILHAR NO STORY
+            </button>
+
+            <button class="secondary-button" onclick="challengeFriend()">
+                👥 DESAFIAR UM AMIGO
+            </button>
+
+            <button class="secondary-button" onclick="restartQuiz()">
+                🔄 FAZER NOVAMENTE
+            </button>
+
+        </div>
+
+        <div class="creator">
+            Criado por @sklu_ci 💡
+        </div>
 
     </div>
-
-
-
-    <button
-        class="primary share"
-        onclick="shareStory()">
-
-        📸 COMPARTILHAR NO STORY
-
-    </button>
-
-
-    <button
-        class="primary"
-        onclick="restartQuiz()"
-        style="margin-top:10px;">
-
-        ↻ FAZER NOVAMENTE
-
-    </button>
-
-
-    <div class="share-info">
-
-        O site vai criar uma imagem
-        vertical pronta para o Story.
-
-    </div>
-
-
-    <div class="creator">
-
-        Criado por
-        <strong>@sklu_ci 💡</strong>
-
-    </div>
-
-
-</section>
-
 
 </div>
-
-</div>
-
 
 
 <script>
 
-
-/* ================================================= */
-/* PERGUNTAS */
-/* ================================================= */
-
-
 const questions = [
 
-
 {
-
-question:
-"Quando alguma coisa dá errado, você...",
-
-answers: [
-
-[
-"Tento resolver, mesmo com medo.",
-"protagonista"
-],
-
-[
-"Fico pensando no que fiz errado.",
-"melancolico"
-],
-
-[
-"Dou risada porque já deu ruim mesmo.",
-"caotico"
-],
-
-[
-"Observo tudo antes de agir.",
-"misterioso"
-],
-
-[
-"Tento proteger quem está comigo.",
-"guardiao"
-],
-
-[
-"Procuro uma solução inteligente.",
-"estrategista"
-]
-
-]
-
+    question: "Quando alguma coisa dá errado, você...",
+    options: [
+        ["Tenta resolver e segue em frente.", "protagonista"],
+        ["Fica pensando nisso por horas.", "melancolico"],
+        ["Faz alguma coisa completamente inesperada.", "caotico"],
+        ["Fica quieto e observa.", "misterioso"],
+        ["Tenta proteger quem está envolvido.", "guardiao"],
+        ["Analisa tudo antes de agir.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Escolha um lugar para passar a noite.",
-
-answers: [
-
-[
-"Uma cidade cheia de luzes.",
-"protagonista"
-],
-
-[
-"Meu quarto, música e silêncio.",
-"melancolico"
-],
-
-[
-"Uma festa completamente aleatória.",
-"caotico"
-],
-
-[
-"Um lugar abandonado.",
-"misterioso"
-],
-
-[
-"Uma casa tranquila com quem gosto.",
-"guardiao"
-],
-
-[
-"Uma biblioteca ou lugar silencioso.",
-"estrategista"
-]
-
-]
-
+    question: "Qual lugar você escolheria para passar uma noite?",
+    options: [
+        ["Uma cidade cheia de gente.", "protagonista"],
+        ["Uma casa silenciosa.", "melancolico"],
+        ["Uma festa que ninguém conhece.", "caotico"],
+        ["Uma floresta durante a noite.", "misterioso"],
+        ["Uma casa com seus amigos.", "guardiao"],
+        ["Um lugar secreto que ninguém conhece.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Qual frase combina mais com você?",
-
-answers: [
-
-[
-"Eu vou conseguir.",
-"protagonista"
-],
-
-[
-"Eu sinto tudo demais.",
-"melancolico"
-],
-
-[
-"Se der errado, vira história.",
-"caotico"
-],
-
-[
-"Nem tudo precisa ser explicado.",
-"misterioso"
-],
-
-[
-"Eu não abandono quem amo.",
-"guardiao"
-],
-
-[
-"Sempre existe uma maneira.",
-"estrategista"
-]
-
-]
-
+    question: "Qual frase combina mais com você?",
+    options: [
+        ["Eu vou conseguir.", "protagonista"],
+        ["Algumas coisas simplesmente ficam na cabeça.", "melancolico"],
+        ["Depois eu penso nisso.", "caotico"],
+        ["Nem tudo precisa ser explicado.", "misterioso"],
+        ["Eu não vou deixar ninguém para trás.", "guardiao"],
+        ["Sempre existe uma maneira.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Você descobre um segredo. O que faz?",
-
-answers: [
-
-[
-"Vou atrás da verdade.",
-"protagonista"
-],
-
-[
-"Fico pensando nisso por dias.",
-"melancolico"
-],
-
-[
-"Conto para alguém só pelo caos.",
-"caotico"
-],
-
-[
-"Guardo para mim.",
-"misterioso"
-],
-
-[
-"Uso isso para proteger alguém.",
-"guardiao"
-],
-
-[
-"Analiso antes de decidir.",
-"estrategista"
-]
-
-]
-
+    question: "Você descobre um segredo. O que faz?",
+    options: [
+        ["Investigo até descobrir tudo.", "protagonista"],
+        ["Fico pensando sobre aquilo.", "melancolico"],
+        ["Provavelmente conto para alguém.", "caotico"],
+        ["Guardo para mim.", "misterioso"],
+        ["Protejo quem poderia ser prejudicado.", "guardiao"],
+        ["Uso a informação com inteligência.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Alguém que você gosta está mal. Você...",
-
-answers: [
-
-[
-"Faço de tudo para ajudar.",
-"protagonista"
-],
-
-[
-"Sinto a dor junto com a pessoa.",
-"melancolico"
-],
-
-[
-"Tento fazer a pessoa rir.",
-"caotico"
-],
-
-[
-"Fico por perto sem pressionar.",
-"misterioso"
-],
-
-[
-"Não saio do lado dela.",
-"guardiao"
-],
-
-[
-"Penso no que pode resolver o problema.",
-"estrategista"
-]
-
-]
-
+    question: "Uma pessoa que você gosta está triste. Você...",
+    options: [
+        ["Tenta animá-la.", "protagonista"],
+        ["Senta ao lado e escuta.", "melancolico"],
+        ["Faz alguma besteira para ela rir.", "caotico"],
+        ["Fica perto mesmo sem falar muito.", "misterioso"],
+        ["Faz de tudo para ajudá-la.", "guardiao"],
+        ["Procura uma solução para o problema.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Qual dessas coisas mais te atrai?",
-
-answers: [
-
-[
-"Aventura.",
-"protagonista"
-],
-
-[
-"Música e memórias.",
-"melancolico"
-],
-
-[
-"Diversão e confusão.",
-"caotico"
-],
-
-[
-"Mistérios.",
-"misterioso"
-],
-
-[
-"Pessoas e conexões.",
-"guardiao"
-],
-
-[
-"Conhecimento.",
-"estrategista"
-]
-
-]
-
+    question: "O que mais chama sua atenção?",
+    options: [
+        ["Aventura.", "protagonista"],
+        ["Música.", "melancolico"],
+        ["Confusão.", "caotico"],
+        ["Mistérios.", "misterioso"],
+        ["Pessoas.", "guardiao"],
+        ["Estratégias.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Quando você gosta de alguém, você...",
-
-answers: [
-
-[
-"Demonstro e vou atrás.",
-"protagonista"
-],
-
-[
-"Sinto muito, mas tenho medo de perder.",
-"melancolico"
-],
-
-[
-"Brinco para esconder o que sinto.",
-"caotico"
-],
-
-[
-"Demoro para mostrar.",
-"misterioso"
-],
-
-[
-"Faço a pessoa se sentir protegida.",
-"guardiao"
-],
-
-[
-"Observo e tento entender a pessoa.",
-"estrategista"
-]
-
-]
-
+    question: "Quando você gosta de alguém...",
+    options: [
+        ["Demonstra.", "protagonista"],
+        ["Sente muito, mas às vezes não fala.", "melancolico"],
+        ["Faz brincadeiras para esconder.", "caotico"],
+        ["Mantém parte dos sentimentos em segredo.", "misterioso"],
+        ["Se preocupa muito com a pessoa.", "guardiao"],
+        ["Pensa bastante antes de se entregar.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Qual seria sua arma em uma história?",
-
-answers: [
-
-[
-"Minha coragem.",
-"protagonista"
-],
-
-[
-"Meu coração.",
-"melancolico"
-],
-
-[
-"Meu completo descontrole.",
-"caotico"
-],
-
-[
-"Minha inteligência escondida.",
-"misterioso"
-],
-
-[
-"Minha lealdade.",
-"guardiao"
-],
-
-[
-"Minha estratégia.",
-"estrategista"
-]
-
-]
-
+    question: "Qual seria sua arma em uma história?",
+    options: [
+        ["Uma espada.", "protagonista"],
+        ["Uma música.", "melancolico"],
+        ["Qualquer coisa que estiver por perto.", "caotico"],
+        ["Uma adaga escondida.", "misterioso"],
+        ["Um escudo.", "guardiao"],
+        ["Uma arma extremamente precisa.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"Você prefere...",
-
-answers: [
-
-[
-"Viver uma grande aventura.",
-"protagonista"
-],
-
-[
-"Uma vida tranquila com poucas pessoas.",
-"melancolico"
-],
-
-[
-"Nunca saber o que vai acontecer.",
-"caotico"
-],
-
-[
-"Ter segredos que ninguém conhece.",
-"misterioso"
-],
-
-[
-"Estar perto de quem amo.",
-"guardiao"
-],
-
-[
-"Ter controle sobre meus planos.",
-"estrategista"
-]
-
-]
-
+    question: "Você prefere...",
+    options: [
+        ["Viver uma grande aventura.", "protagonista"],
+        ["Uma noite tranquila.", "melancolico"],
+        ["Fazer algo completamente aleatório.", "caotico"],
+        ["Descobrir algo que ninguém sabe.", "misterioso"],
+        ["Estar com quem ama.", "guardiao"],
+        ["Ter tudo planejado.", "estrategista"]
+    ]
 },
 
-
-
 {
-
-question:
-"No final de uma história, você gostaria de ser lembrado como...",
-
-answers: [
-
-[
-"A pessoa que nunca desistiu.",
-"protagonista"
-],
-
-[
-"Alguém que amou de verdade.",
-"melancolico"
-],
-
-[
-"A pessoa mais imprevisível.",
-"caotico"
-],
-
-[
-"Aquele que ninguém conseguiu decifrar.",
-"misterioso"
-],
-
-[
-"Quem sempre esteve lá.",
-"guardiao"
-],
-
-[
-"A mente por trás de tudo.",
-"estrategista"
-]
-
-]
-
+    question: "Como você gostaria de ser lembrado?",
+    options: [
+        ["Como alguém que viveu intensamente.", "protagonista"],
+        ["Como alguém que sentia profundamente.", "melancolico"],
+        ["Como alguém impossível de esquecer.", "caotico"],
+        ["Como alguém que ninguém conseguiu decifrar.", "misterioso"],
+        ["Como alguém que sempre esteve lá.", "guardiao"],
+        ["Como alguém que sempre tinha um plano.", "estrategista"]
+    ]
 }
 
 ];
 
 
-
-/* ================================================= */
-/* RESULTADOS */
-/* ================================================= */
-
-
 const results = {
 
+    protagonista: {
+        symbol: "🌟",
+        title: "O PROTAGONISTA",
+        description: "Você gosta de viver sua própria história. Quando aparece um desafio, alguma parte de você quer enfrentar e descobrir até onde consegue chegar.",
+        personality: 93,
+        chaos: 55,
+        mystery: 58
+    },
 
-protagonista: {
+    melancolico: {
+        symbol: "🌙",
+        title: "O MELANCÓLICO",
+        description: "Você sente as coisas profundamente. Guarda memórias, percebe pequenos detalhes e muitas vezes existe muito mais acontecendo dentro de você do que as pessoas imaginam.",
+        personality: 97,
+        chaos: 25,
+        mystery: 84
+    },
 
-symbol: "🌟",
+    caotico: {
+        symbol: "💀",
+        title: "O CAÓTICO",
+        description: "Previsibilidade definitivamente não é sua especialidade. Você transforma situações normais em histórias que provavelmente ninguém vai esquecer.",
+        personality: 81,
+        chaos: 99,
+        mystery: 49
+    },
 
-name: "O PROTAGONISTA",
+    misterioso: {
+        symbol: "🕯️",
+        title: "O MISTERIOSO",
+        description: "Você não entrega tudo de primeira. Observa, pensa e deixa algumas partes da sua história somente para quem realmente merece conhecê-las.",
+        personality: 89,
+        chaos: 37,
+        mystery: 99
+    },
 
-description:
-"Você não espera a história acontecer. Mesmo quando sente medo, existe alguma coisa em você que continua tentando.",
+    guardiao: {
+        symbol: "🛡️",
+        title: "O GUARDIÃO",
+        description: "Você valoriza as pessoas que ama e tende a estar presente quando realmente importa. Para você, algumas pessoas valem qualquer esforço.",
+        personality: 94,
+        chaos: 35,
+        mystery: 67
+    },
 
-personality: 93,
+    estrategista: {
+        symbol: "♟️",
+        title: "O ESTRATEGISTA",
+        description: "Você prefere pensar antes de agir. Enquanto outras pessoas estão reagindo, você provavelmente já está imaginando os próximos passos.",
+        personality: 91,
+        chaos: 29,
+        mystery: 79
+    },
 
-chaos: 55,
-
-mystery: 58
-
-},
-
-
-
-melancolico: {
-
-symbol: "🌙",
-
-name: "O MELANCÓLICO",
-
-description:
-"Você sente tudo profundamente. Guarda memórias, pensa bastante e talvez demonstre menos do que realmente sente.",
-
-personality: 97,
-
-chaos: 25,
-
-mystery: 84
-
-},
-
-
-
-caotico: {
-
-symbol: "💀",
-
-name: "O CAÓTICO",
-
-description:
-"Ninguém sabe exatamente o que você vai fazer. Às vezes nem você. Mas provavelmente alguma história absurda vai surgir.",
-
-personality: 81,
-
-chaos: 99,
-
-mystery: 49
-
-},
-
-
-
-misterioso: {
-
-symbol: "🕯️",
-
-name: "O MISTERIOSO",
-
-description:
-"Você observa mais do que fala. Nem todo mundo consegue entender o que passa pela sua cabeça.",
-
-personality: 89,
-
-chaos: 37,
-
-mystery: 99
-
-},
-
-
-
-guardiao: {
-
-symbol: "🛡️",
-
-name: "O GUARDIÃO",
-
-description:
-"Você pode até não falar muito, mas quando alguém importante precisa de você, você aparece. Sua maior força é a lealdade.",
-
-personality: 94,
-
-chaos: 35,
-
-mystery: 67
-
-},
-
-
-
-estrategista: {
-
-symbol: "♟️",
-
-name: "O ESTRATEGISTA",
-
-description:
-"Enquanto todo mundo está reagindo, você já está pensando no próximo passo. Você gosta de entender antes de agir.",
-
-personality: 91,
-
-chaos: 29,
-
-mystery: 79
-
-}
+    secreto: {
+        symbol: "🩸",
+        title: "O INCLASSIFICÁVEL",
+        description: "Você conseguiu uma combinação extremamente incomum. Nem protagonista, nem vilão, nem herói... aparentemente você simplesmente joga pelas suas próprias regras.",
+        personality: 100,
+        chaos: 100,
+        mystery: 100
+    }
 
 };
 
 
-
-/* ================================================= */
-/* VARIÁVEIS */
-/* ================================================= */
-
-
 let currentQuestion = 0;
-
-let scores = {};
+let scores = {
+    protagonista: 0,
+    melancolico: 0,
+    caotico: 0,
+    misterioso: 0,
+    guardiao: 0,
+    estrategista: 0
+};
 
 let finalResult = null;
 
 
-
-/* ================================================= */
-/* COMEÇAR */
-/* ================================================= */
-
-
 function startQuiz() {
 
+    currentQuestion = 0;
 
-currentQuestion = 0;
+    scores = {
+        protagonista: 0,
+        melancolico: 0,
+        caotico: 0,
+        misterioso: 0,
+        guardiao: 0,
+        estrategista: 0
+    };
 
+    document.getElementById("startScreen").classList.add("hidden");
+    document.getElementById("resultScreen").classList.add("hidden");
+    document.getElementById("quizScreen").classList.remove("hidden");
 
-scores = {
-
-protagonista: 0,
-
-melancolico: 0,
-
-caotico: 0,
-
-misterioso: 0,
-
-guardiao: 0,
-
-estrategista: 0
-
-};
-
-
-document
-.getElementById("intro")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("result")
-.classList
-.add("hidden");
-
-
-document
-.getElementById("quiz")
-.classList
-.remove("hidden");
-
-
-showQuestion();
+    showQuestion();
 
 }
-
-
-
-/* ================================================= */
-/* MOSTRAR PERGUNTA */
-/* ================================================= */
 
 
 function showQuestion() {
 
+    const q = questions[currentQuestion];
 
-const q =
-questions[currentQuestion];
+    document.getElementById("questionNumber").textContent =
+        `Pergunta ${currentQuestion + 1} de ${questions.length}`;
 
+    const percentage =
+        Math.round(((currentQuestion + 1) / questions.length) * 100);
 
-document
-.getElementById("questionNumber")
-.textContent =
-`PERGUNTA ${currentQuestion + 1} DE ${questions.length}`;
+    document.getElementById("percentage").textContent =
+        percentage + "%";
 
-
-document
-.getElementById("question")
-.textContent =
-q.question;
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
 
 
-document
-.getElementById("progress")
-.style
-.width =
-`${((currentQuestion + 1) / questions.length) * 100}%`;
+    const container =
+        document.getElementById("questionContainer");
+
+    container.innerHTML = "";
+
+    const title = document.createElement("div");
+
+    title.className = "question";
+    title.textContent = q.question;
+
+    container.appendChild(title);
 
 
-const answers =
-document.getElementById("answers");
+    const options = document.createElement("div");
+
+    options.className = "options";
 
 
-answers.innerHTML = "";
+    q.options.forEach(option => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+        button.textContent = option[0];
+
+        button.onclick = () => answer(option[1]);
+
+        options.appendChild(button);
+
+    });
 
 
-q.answers.forEach(item => {
-
-
-const button =
-document.createElement("button");
-
-
-button.className =
-"answer";
-
-
-button.textContent =
-item[0];
-
-
-button.onclick =
-function() {
-
-chooseAnswer(item[1]);
-
-};
-
-
-answers.appendChild(button);
-
-
-});
+    container.appendChild(options);
 
 }
 
 
+function answer(type) {
 
-/* ================================================= */
-/* ESCOLHER RESPOSTA */
-/* ================================================= */
+    scores[type]++;
 
+    currentQuestion++;
 
-function chooseAnswer(type) {
+    if (currentQuestion < questions.length) {
 
+        showQuestion();
 
-scores[type]++;
+    } else {
 
+        showResult();
 
-currentQuestion++;
-
-
-if (
-currentQuestion <
-questions.length
-) {
-
-showQuestion();
+    }
 
 }
-
-else {
-
-showResult();
-
-}
-
-}
-
-
-
-/* ================================================= */
-/* RESULTADO */
-/* ================================================= */
 
 
 function showResult() {
 
+    document.getElementById("quizScreen").classList.add("hidden");
+    document.getElementById("resultScreen").classList.remove("hidden");
 
-document
-.getElementById("quiz")
-.classList
-.add("hidden");
+    const sorted =
+        Object.entries(scores).sort((a,b) => b[1] - a[1]);
 
+    const first = sorted[0];
+    const second = sorted[1];
 
-document
-.getElementById("result")
-.classList
-.remove("hidden");
+    /*
+       Resultado secreto:
+       aparece apenas se houver empate total
+       entre pelo menos 4 personalidades.
+    */
 
+    const maxScore = first[1];
 
-let winner =
-Object.keys(scores)
-.reduce(
-(a,b) =>
-scores[a] >= scores[b]
-? a
-: b
-);
+    const tied =
+        sorted.filter(item => item[1] === maxScore);
 
+    if (tied.length >= 4) {
 
-finalResult =
-results[winner];
+        finalResult = "secreto";
 
+    } else {
 
-document
-.getElementById("resultSymbol")
-.textContent =
-finalResult.symbol;
+        finalResult = first[0];
+
+    }
 
 
-document
-.getElementById("resultName")
-.textContent =
-finalResult.name;
+    const result = results[finalResult];
 
 
-document
-.getElementById("resultDescription")
-.textContent =
-finalResult.description;
+    document.getElementById("resultSymbol").textContent =
+        result.symbol;
+
+    document.getElementById("resultTitle").textContent =
+        result.title;
+
+    document.getElementById("resultDescription").textContent =
+        result.description;
 
 
-document
-.getElementById("personalityValue")
-.textContent =
-finalResult.personality + "%";
+    document.getElementById("personalityValue").textContent =
+        result.personality + "%";
+
+    document.getElementById("chaosValue").textContent =
+        result.chaos + "%";
+
+    document.getElementById("mysteryValue").textContent =
+        result.mystery + "%";
 
 
-document
-.getElementById("chaosValue")
-.textContent =
-finalResult.chaos + "%";
+    setTimeout(() => {
+
+        document.getElementById("personalityBar").style.width =
+            result.personality + "%";
+
+        document.getElementById("chaosBar").style.width =
+            result.chaos + "%";
+
+        document.getElementById("mysteryBar").style.width =
+            result.mystery + "%";
+
+    }, 100);
 
 
-document
-.getElementById("mysteryValue")
-.textContent =
-finalResult.mystery + "%";
+    if (finalResult === "secreto") {
 
+        document.getElementById("secondaryResult").innerHTML =
+            "🩸 <strong>RESULTADO RARO!</strong><br>Você desbloqueou o resultado secreto.";
 
-setTimeout(() => {
+    } else {
 
+        const secondResult = results[second[0]];
 
-document
-.getElementById("personalityBar")
-.style
-.width =
-finalResult.personality + "%";
+        document.getElementById("secondaryResult").innerHTML =
+            `Além disso, você também possui traços de <strong>${secondResult.title}</strong> ${secondResult.symbol}.`;
 
-
-document
-.getElementById("chaosBar")
-.style
-.width =
-finalResult.chaos + "%";
-
-
-document
-.getElementById("mysteryBar")
-.style
-.width =
-finalResult.mystery + "%";
-
-
-}, 250);
+    }
 
 }
-
-
-
-/* ================================================= */
-/* COMPARTILHAR STORY */
-/* ================================================= */
-
-
-async function shareStory() {
-
-
-if (!finalResult) return;
-
-
-const canvas =
-document.createElement("canvas");
-
-
-canvas.width = 1080;
-
-canvas.height = 1920;
-
-
-const ctx =
-canvas.getContext("2d");
-
-
-
-/* FUNDO */
-
-
-const gradient =
-ctx.createRadialGradient(
-200,
-200,
-50,
-540,
-960,
-1100
-);
-
-
-gradient.addColorStop(
-0,
-"#49216f"
-);
-
-
-gradient.addColorStop(
-0.45,
-"#10102b"
-);
-
-
-gradient.addColorStop(
-1,
-"#030308"
-);
-
-
-ctx.fillStyle =
-gradient;
-
-
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
-
-
-
-/* ESTRELAS */
-
-
-for (
-let i = 0;
-i < 120;
-i++
-) {
-
-
-const x =
-Math.random()
-* canvas.width;
-
-
-const y =
-Math.random()
-* canvas.height;
-
-
-const r =
-Math.random()
-* 2 + .5;
-
-
-ctx.beginPath();
-
-
-ctx.arc(
-x,
-y,
-r,
-0,
-Math.PI * 2
-);
-
-
-ctx.fillStyle =
-"rgba(255,255,255,.5)";
-
-
-ctx.fill();
-
-}
-
-
-
-/* TÍTULO */
-
-
-ctx.textAlign =
-"center";
-
-
-ctx.fillStyle =
-"#a96cff";
-
-
-ctx.font =
-"bold 28px Arial";
-
-
-ctx.fillText(
-"MEU RESULTADO",
-540,
-230
-);
-
-
-
-/* ÍCONE */
-
-
-ctx.fillStyle =
-"white";
-
-
-ctx.font =
-"bold 92px Arial";
-
-
-ctx.fillText(
-finalResult.symbol,
-540,
-520
-);
-
-
-
-/* NOME */
-
-
-ctx.font =
-"bold 58px Arial";
-
-
-ctx.fillText(
-finalResult.name,
-540,
-650
-);
-
-
-
-/* LINHA */
-
-
-ctx.strokeStyle =
-"rgba(190,120,255,.5)";
-
-
-ctx.lineWidth = 2;
-
-
-ctx.beginPath();
-
-
-ctx.moveTo(
-230,
-710
-);
-
-
-ctx.lineTo(
-850,
-710
-);
-
-
-ctx.stroke();
-
-
-
-/* DESCRIÇÃO */
-
-
-ctx.fillStyle =
-"#c7c3d2";
-
-
-ctx.font =
-"28px Arial";
-
-
-wrapText(
-ctx,
-finalResult.description,
-540,
-820,
-780,
-45
-);
-
-
-
-/* ESTATÍSTICAS */
-
-
-drawStoryStat(
-ctx,
-"PERSONALIDADE",
-finalResult.personality,
-540,
-1120
-);
-
-
-drawStoryStat(
-ctx,
-"CAOS",
-finalResult.chaos,
-540,
-1250
-);
-
-
-drawStoryStat(
-ctx,
-"MISTÉRIO",
-finalResult.mystery,
-540,
-1380
-);
-
-
-
-/* TEXTO FINAL */
-
-
-ctx.fillStyle =
-"#777284";
-
-
-ctx.font =
-"22px Arial";
-
-
-ctx.fillText(
-"Qual personagem você seria?",
-540,
-1640
-);
-
-
-ctx.fillStyle =
-"#b878ff";
-
-
-ctx.font =
-"bold 25px Arial";
-
-
-ctx.fillText(
-"Criado por @sklu_ci 💡",
-540,
-1710
-);
-
-
-
-/* GERAR IMAGEM */
-
-
-const blob =
-await new Promise(resolve =>
-canvas.toBlob(
-resolve,
-"image/png"
-)
-);
-
-
-const file =
-new File(
-[blob],
-"resultado-quiz.png",
-{
-type: "image/png"
-}
-);
-
-
-
-/* COMPARTILHAMENTO NO CELULAR */
-
-
-if (
-navigator.share &&
-navigator.canShare &&
-navigator.canShare({
-files: [file]
-})
-) {
-
-
-try {
-
-
-await navigator.share({
-
-title:
-"Meu resultado",
-
-text:
-"Olha qual personagem eu seria 👀",
-
-files:
-[file]
-
-});
-
-
-return;
-
-
-}
-
-
-catch(error) {
-
-
-if (
-error.name === "AbortError"
-) {
-
-return;
-
-}
-
-}
-
-}
-
-
-
-/* ALTERNATIVA NO PC */
-
-
-const link =
-document.createElement("a");
-
-
-link.download =
-"resultado-quiz.png";
-
-
-link.href =
-URL.createObjectURL(blob);
-
-
-link.click();
-
-
-URL.revokeObjectURL(
-link.href
-);
-
-
-alert(
-"A imagem foi salva! 📸 Agora é só abrir a galeria e postar no seu Story."
-);
-
-}
-
-
-
-/* ================================================= */
-/* BARRAS DA IMAGEM */
-/* ================================================= */
-
-
-function drawStoryStat(
-ctx,
-title,
-value,
-x,
-y
-) {
-
-
-ctx.textAlign =
-"left";
-
-
-ctx.fillStyle =
-"#d0ccda";
-
-
-ctx.font =
-"bold 23px Arial";
-
-
-ctx.fillText(
-title,
-x - 350,
-y
-);
-
-
-ctx.textAlign =
-"right";
-
-
-ctx.fillStyle =
-"#ffffff";
-
-
-ctx.fillText(
-value + "%",
-x + 350,
-y
-);
-
-
-
-/* FUNDO DA BARRA */
-
-
-ctx.fillStyle =
-"rgba(255,255,255,.12)";
-
-
-ctx.fillRect(
-x - 350,
-y + 22,
-700,
-12
-);
-
-
-
-/* BARRA */
-
-
-const gradient =
-ctx.createLinearGradient(
-x - 350,
-0,
-x + 350,
-0
-);
-
-
-gradient.addColorStop(
-0,
-"#803cff"
-);
-
-
-gradient.addColorStop(
-1,
-"#d978ff"
-);
-
-
-ctx.fillStyle =
-gradient;
-
-
-ctx.fillRect(
-x - 350,
-y + 22,
-700 * (value / 100),
-12
-);
-
-}
-
-
-
-/* ================================================= */
-/* TEXTO DA IMAGEM */
-/* ================================================= */
-
-
-function wrapText(
-ctx,
-text,
-x,
-y,
-maxWidth,
-lineHeight
-) {
-
-
-const words =
-text.split(" ");
-
-
-let line = "";
-
-
-for (
-let n = 0;
-n < words.length;
-n++
-) {
-
-
-const testLine =
-line +
-words[n] +
-" ";
-
-
-const metrics =
-ctx.measureText(
-testLine
-);
-
-
-if (
-metrics.width >
-maxWidth &&
-n > 0
-) {
-
-
-ctx.textAlign =
-"center";
-
-
-ctx.fillText(
-line,
-x,
-y
-);
-
-
-line =
-words[n] + " ";
-
-
-y +=
-lineHeight;
-
-}
-
-else {
-
-
-line =
-testLine;
-
-}
-
-}
-
-
-ctx.fillText(
-line,
-x,
-y
-);
-
-}
-
-
-
-/* ================================================= */
-/* RECOMEÇAR */
-/* ================================================= */
 
 
 function restartQuiz() {
 
+    document.getElementById("resultScreen").classList.add("hidden");
+    startQuiz();
 
-document
-.getElementById("personalityBar")
-.style
-.width =
-"0";
+}
 
 
-document
-.getElementById("chaosBar")
-.style
-.width =
-"0";
+function challengeFriend() {
+
+    const text =
+        `Eu descobri que sou ${results[finalResult].title} ${results[finalResult].symbol}! 😈\n\nE você? Descobre o seu fazendo o teste 👀`;
+
+    const url = window.location.href;
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "Qual personagem você seria?",
+            text: text,
+            url: url
+        }).catch(() => {});
+
+    } else {
+
+        navigator.clipboard.writeText(
+            text + "\n" + url
+        );
+
+        alert("Mensagem copiada! Agora é só mandar para seu amigo 😎");
+
+    }
+
+}
 
 
-document
-.getElementById("mysteryBar")
-.style
-.width =
-"0";
+async function shareStory() {
+
+    const result = results[finalResult];
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = 1080;
+    canvas.height = 1920;
+
+    const ctx =
+        canvas.getContext("2d");
 
 
-startQuiz();
+    /* FUNDO */
+
+    const gradient =
+        ctx.createLinearGradient(0,0,1080,1920);
+
+    gradient.addColorStop(0, "#08000d");
+    gradient.addColorStop(.5, "#21072f");
+    gradient.addColorStop(1, "#08000d");
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(0,0,1080,1920);
+
+
+    /* ESTRELAS */
+
+    for(let i = 0; i < 100; i++) {
+
+        const x = Math.random() * 1080;
+        const y = Math.random() * 1920;
+        const size = Math.random() * 4 + 1;
+
+        ctx.fillStyle =
+            "rgba(255,255,255," +
+            (Math.random() * .7 + .2) +
+            ")";
+
+        ctx.beginPath();
+        ctx.arc(x,y,size,0,Math.PI*2);
+        ctx.fill();
+
+    }
+
+
+    ctx.textAlign = "center";
+
+
+    /* TÍTULO */
+
+    ctx.fillStyle = "#d8a5ff";
+    ctx.font = "bold 48px Arial";
+
+    ctx.fillText(
+        "QUAL PERSONAGEM",
+        540,
+        180
+    );
+
+    ctx.fillText(
+        "VOCÊ SERIA?",
+        540,
+        240
+    );
+
+
+    /* SÍMBOLO */
+
+    ctx.font = "170px Arial";
+
+    ctx.fillText(
+        result.symbol,
+        540,
+        530
+    );
+
+
+    /* RESULTADO */
+
+    ctx.fillStyle = "#ffffff";
+
+    ctx.font = "bold 68px Arial";
+
+    ctx.fillText(
+        result.title,
+        540,
+        680
+    );
+
+
+    /* DESCRIÇÃO */
+
+    ctx.fillStyle = "#d5bfdc";
+
+    ctx.font = "32px Arial";
+
+    const words =
+        result.description.split(" ");
+
+    let line = "";
+    let lines = [];
+
+    for (let word of words) {
+
+        const test =
+            line + word + " ";
+
+        if (ctx.measureText(test).width > 800) {
+
+            lines.push(line);
+            line = word + " ";
+
+        } else {
+
+            line = test;
+
+        }
+
+    }
+
+    lines.push(line);
+
+
+    lines.forEach((text,index) => {
+
+        ctx.fillText(
+            text,
+            540,
+            810 + index * 48
+        );
+
+    });
+
+
+    /* BARRAS */
+
+    const traits = [
+
+        ["PERSONALIDADE", result.personality],
+        ["CAOS", result.chaos],
+        ["MISTÉRIO", result.mystery]
+
+    ];
+
+
+    let y = 1100;
+
+
+    traits.forEach(trait => {
+
+        ctx.textAlign = "left";
+
+        ctx.fillStyle = "#ffffff";
+
+        ctx.font = "bold 28px Arial";
+
+        ctx.fillText(
+            trait[0],
+            150,
+            y
+        );
+
+
+        ctx.textAlign = "right";
+
+        ctx.fillText(
+            trait[1] + "%",
+            930,
+            y
+        );
+
+
+        ctx.fillStyle = "#32193d";
+
+        ctx.fillRect(
+            150,
+            y + 20,
+            780,
+            18
+        );
+
+
+        ctx.fillStyle = "#b94dff";
+
+        ctx.fillRect(
+            150,
+            y + 20,
+            780 * trait[1] / 100,
+            18
+        );
+
+
+        y += 120;
+
+    });
+
+
+    /* RODAPÉ */
+
+    ctx.textAlign = "center";
+
+    ctx.fillStyle = "#c28ce5";
+
+    ctx.font = "bold 30px Arial";
+
+    ctx.fillText(
+        "Criado por @sklu_ci 💡",
+        540,
+        1660
+    );
+
+
+    ctx.fillStyle = "#80648c";
+
+    ctx.font = "24px Arial";
+
+    ctx.fillText(
+        "Faça o teste e descubra o seu.",
+        540,
+        1710
+    );
+
+
+    /* GERAR IMAGEM */
+
+    canvas.toBlob(async blob => {
+
+        if (!blob) return;
+
+        const file =
+            new File(
+                [blob],
+                "meu-resultado.png",
+                { type: "image/png" }
+            );
+
+
+        /* CELULAR */
+
+        if (
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+
+            try {
+
+                await navigator.share({
+
+                    title: "Meu resultado",
+                    text:
+                        `Eu sou ${result.title} ${result.symbol}! Descubra o seu 👀`,
+                    files: [file]
+
+                });
+
+                return;
+
+            } catch (error) {
+
+                console.log("Compartilhamento cancelado.");
+
+            }
+
+        }
+
+
+        /* COMPUTADOR / FALLBACK */
+
+        const link =
+            document.createElement("a");
+
+        link.download =
+            "meu-resultado-quiz.png";
+
+        link.href =
+            URL.createObjectURL(blob);
+
+        link.click();
+
+        URL.revokeObjectURL(link.href);
+
+        alert(
+            "Imagem gerada! Agora é só postar no seu Story 📸"
+        );
+
+    }, "image/png");
 
 }
 
 </script>
-
 
 </body>
 </html>
